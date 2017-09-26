@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>More Color Choices</title>
+</head>
+<body>
+  <div class="output">
+    <label for="theme">Select theme: </label>
+    <select id="theme">
+      <option value="White">White</option>
+      <option value="Black">Black</option>
+      <option value="Purple">Purple</option>
+      <option value="Yellow">Yellow</option>
+    </select>
+    <h1>Hello!</h1>
+  </div>
+  <script>
+var select = document.querySelector('select');
+var html = document.querySelector('.output');
+
+select.onchange = function() {
+  var choice = select.value;
+  switch (choice) {
+    case 'White':
+      bgColor = 'white';
+      textColor = 'black';
+      break;
+    case 'Black':
+      bgColor = 'black';
+      textColor = 'white';
+      break;
+    case 'Purple':
+      bgColor = 'purple';
+      textColor = 'yellow';
+      break;
+    case 'Yellow':
+      bgColor = 'yellow';
+      textColor = 'purple';
+      break;
+    default:
+      para.textContent = '';
+  }
+};
+
+function update(bgColor, textColor) {
+  html.style.backgroundColor = bgColor;
+  html.style.color = textColor;
+}
+</script>
+</body>
+</html>
