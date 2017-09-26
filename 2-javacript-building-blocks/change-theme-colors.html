@@ -23,20 +23,16 @@ select.onchange = function() {
   var choice = select.value;
   switch (choice) {
     case 'White':
-      bgColor = 'white';
-      textColor = 'black';
+      update('white','black');
       break;
     case 'Black':
-      bgColor = 'black';
-      textColor = 'white';
+      update('black','white');
       break;
     case 'Purple':
-      bgColor = 'purple';
-      textColor = 'yellow';
+      update('purple','yellow');
       break;
     case 'Yellow':
-      bgColor = 'yellow';
-      textColor = 'purple';
+      update('yellow','purple');
       break;
     default:
       para.textContent = '';
