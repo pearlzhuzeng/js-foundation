@@ -18,29 +18,30 @@ const insertZ = [
   'turned into a slug and crawled away',
 ];
 
-// EVENT LISTENER AND PARTIAL FUNCTION DEFINITION
-const newStory = storyText; // So we can create a new random story each time the button is pressed. If we made changes directly to storyText, we'd only be able to generate a new story once.
-const xItem = randomValueFromArray(insertX);
-const yItem = randomValueFromArray(insertY);
-const zItem = randomValueFromArray(insertZ);
-
 randomize.addEventListener('click', result);
 
 function result() {
-  newStory.replace(':insertx:', xItem);
-  newStory.replace(':inserty:', yItem);
-  newStory.replace(':insertz:', zItem);
+  // EVENT LISTENER AND PARTIAL FUNCTION DEFINITION
+  let newStory = storyText; // So we can create a new random story each time the button is pressed. If we made changes directly to storyText, we'd only be able to generate a new story once.
+  const xItem = randomValueFromArray(insertX);
+  const yItem = randomValueFromArray(insertY);
+  const zItem = randomValueFromArray(insertZ);
+
+  newStory = newStory.replace(':insertx:', xItem);
+  newStory = newStory.replace(':insertx:', xItem); // the replace method only replaces the first instance of the substring it finds
+  newStory = newStory.replace(':inserty:', yItem);
+  newStory = newStory.replace(':insertz:', zItem);
 
   if (customName.value != '') {
     const name = customName.value;
-    newStory.replace('Bob', name);
+    newStory = newStory.replace('Bob', name);
   }
 
   if (document.getElementById('uk').checked) {
     const temperature = `${Math.round((94 - 32) * 5 / 9)} centigrade`;
     const weight = `${Math.round(300 / 14)} stone`;
-    newStory.replace('94 farenheit', temperature);
-    newStory.replace('300 pounds', weight);
+    newStory = newStory.replace('94 farenheit', temperature);
+    newStory = newStory.replace('300 pounds', weight);
   }
 
   story.textContent = newStory;
