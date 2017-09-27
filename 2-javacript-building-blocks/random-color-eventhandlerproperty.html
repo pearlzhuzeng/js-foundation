@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random color example — event handler property</title>
+    <style>
+      button {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Change color</button>
+    <script>
+var btn = document.querySelector('button');
+function random(number) {
+  return Math.floor(Math.random() * number);
+}
+function bgChange() {
+  var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+  document.body.style.backgroundColor = rndCol; // and if add e in () and use e.target.style.backgroundColor, we will change the button color only
+}
+
+btn.onclick = bgChange;
+//other event listeners tried: btn.onfocus, btn.onblur, btn.ondblclick, window.onkeypress, window.onkeydown, window.onkeyup, btn.onmouseover, btn.onmouseout.
+
+/*Alternative: use addEventListener; can be used along with removeEventListener.
+btn.addEventListener('click', function() {
+  var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+  document.body.style.backgroundColor = rndCol;
+});
+*/
+</script>
+  </body>
+</html>
