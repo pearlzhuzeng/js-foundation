@@ -5,7 +5,7 @@ btn = document.querySelector('button');
 const overlay = document.querySelector('.overlay');
 
 /* Looping through images */
-for (i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i++) {
   // display images in the thumbBar
   const newImage = document.createElement('img');
   newImage.setAttribute('src', `images/pic${i + 1}.jpg`);
