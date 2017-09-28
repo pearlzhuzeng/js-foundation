@@ -22,24 +22,35 @@ btn.onclick = function() {
   para.textContent = eval(code);
 };
 
-//Define a person with a normal function
-/*function createNewPerson(name) {
-  var obj = {};
-  obj.name = name;
-  obj.greeting = function() {
-    alert("Hi, I'm " + this.name + '.');
+function Person(first, last, age, gender, interests) {
+  this.name = {
+    first,
+    last,
   };
-  return obj;
-}*/
-//This works well enough, but it is a bit longwinded; if we know we want to create an object, why do we need to explicitly create a new empty object and return it? Fortunately JavaScript provides us with a handy shortcut, in the form of constructor functions — let's make one now!
-function Person(name) {
-  this.name = name;
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+  this.bio = function() {
+    alert(
+      this.name.first +
+        ' ' +
+        this.name.last +
+        ' is ' +
+        this.age +
+        ' years old. ' +
+        (gender === 'male' ? 'He' : 'She') +
+        ' likes ' +
+        this.interests,
+    );
+  };
   this.greeting = function() {
-    alert("Hi, I'm " + this.name + '.');
+    alert("Hi! I'm " + this.name.first + '.');
   };
 }
-var person1 = new Person('Bob'); //the `new` keyword is used to tell the browser we want to create a new object instance, followed by the function name with its required parameters contained in parentheses, and the result is stored in a variable
-var person2 = new Person('Sarah');
+
+//create an object instance from Person
+var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+var person2 = new Person('Jenna', 'Blake', 22, 'female', ['dancing', 'running', 'bowling']);
 </script>
   </body>
 </html>
