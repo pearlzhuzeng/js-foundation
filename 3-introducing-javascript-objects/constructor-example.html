@@ -30,6 +30,13 @@ function Person(first, last, age, gender, interests) {
   this.age = age;
   this.gender = gender;
   this.interests = interests;
+  for (var i = 0; i < interests.length; i++) {
+    if (i === interests.length - 1) {
+      interests += 'and' + interests[i] + '.';
+    } else {
+      interests += interests[i] + ',';
+    }
+  }
   this.bio = function() {
     alert(
       this.name.first +
@@ -40,7 +47,10 @@ function Person(first, last, age, gender, interests) {
         ' years old. ' +
         (gender === 'male' ? 'He' : 'She') +
         ' likes ' +
-        this.interests,
+        this.interests[0] +
+        ' and ' +
+        this.interests[1] +
+        '.',
     );
   };
   this.greeting = function() {
